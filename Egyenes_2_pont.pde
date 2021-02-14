@@ -1,26 +1,26 @@
-// Futásidő alatt minden második egérkattintásra jelenjenek meg az aktuális, 
+// Futásidő alatt minden második egérkattintásra jelenjenek meg az aktuális,  //<>// //<>//
 // illetve a megelőző kattintás pontjaira illeszkedő egyenes!
 
 int count;
 int prevMouseX, prevMouseY;
 
 void setup() {
-  size(640, 480);
+    size(640, 480);
 }
 
 void draw() {
 }
 
 void mousePressed() {
-  count++;
+    count++;
 
-  if (count % 2 == 0) {    
-    Line line = new Line(mouseX, mouseY, prevMouseX, prevMouseY); 
-    line.drawInf();
-  }
+    if (count % 2 == 0) {    
+        Line line = new Line(mouseX, mouseY, prevMouseX, prevMouseY); 
+        line.drawInf();
+    }
 
-  prevMouseX = mouseX;
-  prevMouseY = mouseY;
+    prevMouseX = mouseX;
+    prevMouseY = mouseY;
 }
 
 class Line {
@@ -32,32 +32,32 @@ class Line {
         this.x2 = x2;
         this.y2 = y2;
     }
-    
+
     void draw() {
-        float x, y; //<>//
-        
-        for (x = (x1<x2)?x1:x2; x < ((x1>x2)?x1:x2); x++) {  //<>//
+        float x, y;
+
+        for (x = (x1<x2)?x1:x2; x < ((x1>x2)?x1:x2); x++) { 
             y = (y2-y1)/(x2-x1)*(x-x1)+y1;
-            point(x,y);            
+            point(x, y);
         }
     }
-    
+
     void drawInf() {
-        float x,y;
-        
+        float x, y;
+
         draw();
-        
+
         x = (x1<x2)?x1:x2;
         do {
             y = (y2-y1)/(x2-x1)*(x-x1)+y1;
-            point(x,y);
+            point(x, y);
             x--;
         } while (x>=0 && y>=0);
-        
+
         x = (x1>x2)?x1:x2;
         do {
             y = (y2-y1)/(x2-x1)*(x-x1)+y1;
-            point(x,y);
+            point(x, y);
             x++;
         } while (x<=width && y<=height);
     }
