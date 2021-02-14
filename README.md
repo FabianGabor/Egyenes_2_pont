@@ -1,0 +1,1 @@
+Egyenes_2_pont
